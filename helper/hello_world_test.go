@@ -3,6 +3,7 @@ package helper
 import (
 	"fmt"
 	"testing"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestHelloWorld(t *testing.T) {
@@ -24,4 +25,11 @@ func TestHelloWorldTrue(t *testing.T) {
 	if result != "Hello, Ryan" {
 		t.Fail()
 	}
+}
+
+func TestHelloWorldAssert(t *testing.T) {
+	result := HelloWorld("Adit")
+	assert.Equal(t, "Hello, Adit", result, "Result must be 'Hello, Adit'")
+
+	// assert refer to Fail, require refer to FailNow
 }
