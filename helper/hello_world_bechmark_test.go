@@ -31,3 +31,29 @@ func BenchmarkSub(b *testing.B) {
 		}
 	})
 }
+
+func BenchmarkTable(b *testing.B) {
+	tests := []struct{
+		name string
+		request string
+	}{
+		{
+			name: "HelloWorld(Ryan)",
+			request: "Ryan",
+		},
+		{
+			name: "HelloWorld(Adit)",
+			request: "Adit",
+		},
+		{
+			name: "HelloWorld(Putra)",
+			request: "Putra",
+		},
+	}
+
+	for _, test := range tests {
+		b.Run(test.name, func(b *testing.B) {
+			HelloWorld(test.request)
+		})
+	}
+}
